@@ -652,27 +652,27 @@ const k8sSchema: JSONSchema6 = {
     IProperties: {
       description: "Properties represents the ACS cluster definition",
       properties: {
-        aadProfile: {
-          $ref: "#/definitions/IAADProfile",
-          description: "AADProfile specifies attributes for AAD integration",
-        },
+        // aadProfile: {
+        //   $ref: "#/definitions/IAADProfile",
+        //   description: "AADProfile specifies attributes for AAD integration",
+        // },
         agentPoolProfiles: {
           items: {
             $ref: "#/definitions/IAgentPoolProfile",
           },
           type: "array",
         },
-        certificateProfile: {
-          $ref: "#/definitions/ICertificateProfile",
-          description:
-            'CertificateProfile represents the definition of the master cluster\nThe JSON parameters could be either a plain text, or referenced to a secret in a keyvault.\nIn the latter case, the format of the parameter\'s value should be\n"/subscriptions/<SUB_ID>/resourceGroups/<RG_NAME>/providers/Microsoft.KeyVault/vaults/<KV_NAME>/secrets/<NAME>[/<VERSION>]"\nwhere:\n    <SUB_ID> is the subscription ID of the keyvault\n    <RG_NAME> is the resource group of the keyvault\n    <KV_NAME> is the name of the keyvault\n    <NAME> is the name of the secret\n    <VERSION> (optional) is the version of the secret (default: the latest version)',
-        },
-        extensionProfiles: {
-          items: {
-            $ref: "#/definitions/IExtensionProfile",
-          },
-          type: "array",
-        },
+        // certificateProfile: {
+        //   $ref: "#/definitions/ICertificateProfile",
+        //   description:
+        //     'CertificateProfile represents the definition of the master cluster\nThe JSON parameters could be either a plain text, or referenced to a secret in a keyvault.\nIn the latter case, the format of the parameter\'s value should be\n"/subscriptions/<SUB_ID>/resourceGroups/<RG_NAME>/providers/Microsoft.KeyVault/vaults/<KV_NAME>/secrets/<NAME>[/<VERSION>]"\nwhere:\n    <SUB_ID> is the subscription ID of the keyvault\n    <RG_NAME> is the resource group of the keyvault\n    <KV_NAME> is the name of the keyvault\n    <NAME> is the name of the secret\n    <VERSION> (optional) is the version of the secret (default: the latest version)',
+        // },
+        // extensionProfiles: {
+        //   items: {
+        //     $ref: "#/definitions/IExtensionProfile",
+        //   },
+        //   type: "array",
+        // },
         linuxProfile: {
           $ref: "#/definitions/ILinuxProfile",
         },
@@ -682,20 +682,20 @@ const k8sSchema: JSONSchema6 = {
         orchestratorProfile: {
           $ref: "#/definitions/IOrchestratorProfile",
         },
-        provisioningState: {
-          description:
-            "ProvisioningState represents the current state of container service resource.",
-          type: "string",
-        },
+        // provisioningState: {
+        //   description:
+        //     "ProvisioningState represents the current state of container service resource.",
+        //   type: "string",
+        // },
         servicePrincipalProfile: {
           $ref: "#/definitions/IServicePrincipalProfile",
           description:
             "ServicePrincipalProfile contains the client and secret used by the cluster for Azure Resource CRUD\nThe 'Secret' and 'KeyvaultSecretRef' parameters are mutually exclusive\nThe 'Secret' parameter should be a secret in plain text.\nThe 'KeyvaultSecretRef' parameter is a reference to a secret in a keyvault.",
         },
-        windowsProfile: {
-          $ref: "#/definitions/IWindowsProfile",
-          description: "WindowsProfile represents the windows parameters passed to the cluster",
-        },
+        // windowsProfile: {
+        //   $ref: "#/definitions/IWindowsProfile",
+        //   description: "WindowsProfile represents the windows parameters passed to the cluster",
+        // },
       },
       type: "object",
     },
@@ -717,30 +717,30 @@ const k8sSchema: JSONSchema6 = {
       },
       type: "object",
     },
-    IWindowsProfile: {
-      description: "WindowsProfile represents the windows parameters passed to the cluster",
-      properties: {
-        WindowsImageSourceUrl: {
-          type: "string",
-        },
-        adminPassword: {
-          type: "string",
-        },
-        adminUsername: {
-          type: "string",
-        },
-        imageVersion: {
-          type: "string",
-        },
-        secrets: {
-          items: {
-            $ref: "#/definitions/IKeyVaultSecrets",
-          },
-          type: "array",
-        },
-      },
-      type: "object",
-    },
+    // IWindowsProfile: {
+    //   description: "WindowsProfile represents the windows parameters passed to the cluster",
+    //   properties: {
+    //     WindowsImageSourceUrl: {
+    //       type: "string",
+    //     },
+    //     adminPassword: {
+    //       type: "string",
+    //     },
+    //     adminUsername: {
+    //       type: "string",
+    //     },
+    //     imageVersion: {
+    //       type: "string",
+    //     },
+    //     secrets: {
+    //       items: {
+    //         $ref: "#/definitions/IKeyVaultSecrets",
+    //       },
+    //       type: "array",
+    //     },
+    //   },
+    //   type: "object",
+    // },
   },
   description: "ACS-Engine Cluster Definition Model",
   properties: {
@@ -769,6 +769,7 @@ export const ACSClusterDefinitionFormJSON = (props: IACSClusterDefinitionFormJSO
       <h3>JSON</h3>
       <pre>
         <code
+          contentEditable
           dangerouslySetInnerHTML={{
             __html: hljs.highlight("json", JSON.stringify(cleaned, null, 2)).value,
           }}
