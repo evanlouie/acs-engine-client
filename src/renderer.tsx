@@ -70,13 +70,13 @@ class App extends React.PureComponent {
                     properties: state.clusterDefinition.properties,
                   };
                   return [
-                    <Grid item md={4} key="form">
+                    <Grid item xs={12} md={4} key="form">
                       <ACSClusterDefinitionForm
                         clusterDefinition={clusterDefinition}
                         update={state.update}
                       />
                     </Grid>,
-                    <Grid item md={4} key="json">
+                    <Grid item xs={12} md={4} key="json">
                       <ACSClusterDefinitionFormJSON clusterDefinition={clusterDefinition} />
                     </Grid>,
                   ];
@@ -84,7 +84,7 @@ class App extends React.PureComponent {
               </ClusterDefinitionContext.Consumer>
               <StdOutContext.Consumer>
                 {state => (
-                  <Grid item md={4}>
+                  <Grid item xs={12} md={4}>
                     <StdOut stdout={state.stdout} />
                   </Grid>
                 )}
